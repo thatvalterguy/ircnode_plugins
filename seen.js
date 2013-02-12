@@ -25,7 +25,7 @@ function seen_listener (act) {
   }
   var msg = exports.store[nick].msg;
   if (msg.substr(0, 8) === '\u0001ACTION ')
-    msg = '***' + nick + msg.substr(7, -1);
+    msg = '***' + nick + msg.substr(7, msg.length - 8);
   irc.privmsg(act.source, nick + ' last seen: ' + exports.store[nick].time + ' saying \'' + msg + '\' in ' + exports.store[nick].channel);
 }
 
